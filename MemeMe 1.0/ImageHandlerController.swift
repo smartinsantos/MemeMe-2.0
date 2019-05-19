@@ -11,33 +11,52 @@ import UIKit
 class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var pickImage: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+
+    enum buttonTypes: Int { case photoLibrary = 1, camera }
     
+    // MARK: ImageHandlerController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+    
+    // MARK: ImageHandlerController UIImagePickerControllerDelegate Methods
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("canceled")
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("this is the info: \(info)")
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = image
+        }
         
-        if let image = info
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func pickAnImage(_ sender:Any) {
-        
+    // MARK: ImageHandlerController Actions
+    @IBAction func pickAnImage(_ sender: UIBarButtonItem) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-    
+        
+        switch sender.tag {
+        case buttonTypes.photoLibrary.rawValue:
+            imagePickerController.sourceType = .photoLibrary
+            break;
+        case buttonTypes.camera.rawValue:
+            imagePickerController.sourceType = .camera
+            break;
+        default:
+            return
+        }
         
         present(imagePickerController, animated: true, completion: nil)
-        
     }
 }
 

@@ -18,37 +18,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-XE-LgY">
-                                <rect key="frame" x="0.0" y="836" width="414" height="60"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vbi-4C-MjX" userLabel="Picked Image">
+                                <rect key="frame" x="87" y="144" width="240" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="gXf-w8-o2O"/>
+                                    <constraint firstAttribute="height" constant="300" id="MCC-qe-E7c"/>
+                                    <constraint firstAttribute="width" constant="240" id="jB8-o0-cg2"/>
                                 </constraints>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-XE-LgY">
+                                <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="nGx-rr-KnY">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rWP-mk-Cjw"/>
+                                    <barButtonItem tag="1" title="Library" id="nGx-rr-KnY" userLabel="Photo Library">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="baO-9v-VMd"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1yf-5q-JcI"/>
+                                    <barButtonItem tag="2" title="Camera" id="RIg-aF-Ys7" userLabel="Camera">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="pE7-2D-e97"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EeW-Z8-0ho"/>
                                 </items>
                                 <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vbi-4C-MjX">
-                                <rect key="frame" x="87" y="303" width="240" height="221"/>
-                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lnu-uh-RHG" userLabel="Top Text Field">
+                                <rect key="frame" x="159" y="96" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dng-oh-VoT" userLabel="Bottom Text Field">
+                                <rect key="frame" x="159" y="480" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zOw-XE-LgY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4u5-MO-Bms"/>
-                            <constraint firstAttribute="bottom" secondItem="zOw-XE-LgY" secondAttribute="bottom" id="CdM-bS-8YO"/>
-                            <constraint firstItem="zOw-XE-LgY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PzR-Fa-rW0"/>
-                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="hBC-Eg-VdH"/>
-                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="centerX" secondItem="zOw-XE-LgY" secondAttribute="centerX" id="iHb-IB-PFf"/>
-                            <constraint firstItem="zOw-XE-LgY" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="bottom" id="vmC-S5-nhr"/>
-                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="249" id="xef-0w-E2w"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="centerX" secondItem="zOw-XE-LgY" secondAttribute="centerX" id="2oz-M0-pEu"/>
+                            <constraint firstItem="Dng-oh-VoT" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="bottom" constant="36" id="3wU-iw-RK8"/>
+                            <constraint firstAttribute="bottom" secondItem="zOw-XE-LgY" secondAttribute="bottom" id="BwY-3g-oTA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vbi-4C-MjX" secondAttribute="trailing" constant="87" id="Obf-xT-qQ4"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Vs5-fe-ew1"/>
+                            <constraint firstItem="zOw-XE-LgY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ae7-l0-zlq"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="lnu-uh-RHG" secondAttribute="bottom" constant="18" id="n9t-cO-Zk7"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="pTc-3o-xyF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="RIg-aF-Ys7" id="Ojk-Nk-One"/>
                         <outlet property="imageView" destination="Vbi-4C-MjX" id="UdF-TU-wNe"/>
                         <outlet property="pickImage" destination="nGx-rr-KnY" id="l4o-Yf-sGk"/>
                     </connections>
