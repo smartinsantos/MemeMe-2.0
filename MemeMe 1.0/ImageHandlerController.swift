@@ -9,24 +9,35 @@
 import UIKit
 
 class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    // MARK: ImageHandlerController Outlets
     @IBOutlet weak var pickImage: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     
+    // MARK: ImageHandlerController Properties
     enum buttonTypes: Int { case photoLibrary = 1, camera }
+    let textFieldsDelegate = TextFieldsDelegate();
     
     // MARK: ImageHandlerController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTextFieldProps()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+    
+    func applyTextFieldProps() -> Void {
+        // delegates
+        self.topText.delegate = self.textFieldsDelegate
+        self.bottomText.delegate = self.textFieldsDelegate
+        
+        // MARK: @TODO ui
     }
     
     // MARK: ImageHandlerController UIImagePickerControllerDelegate Methods

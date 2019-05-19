@@ -12,6 +12,7 @@
 		52264DE5228E52C90054C364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52264DE3228E52C90054C364 /* Main.storyboard */; };
 		52264DE7228E52C90054C364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52264DE6228E52C90054C364 /* Assets.xcassets */; };
 		52264DEA228E52C90054C364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52264DE8228E52C90054C364 /* LaunchScreen.storyboard */; };
+		52264DF32291A8670054C364 /* TextFieldsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52264DF22291A8670054C364 /* TextFieldsDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		52264DE6228E52C90054C364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52264DE9228E52C90054C364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52264DEB228E52C90054C364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52264DF22291A8670054C364 /* TextFieldsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				52264DDF228E52C90054C364 /* AppDelegate.swift */,
 				52264DE1228E52C90054C364 /* ImageHandlerController.swift */,
+				52264DF22291A8670054C364 /* TextFieldsDelegate.swift */,
 				52264DE3228E52C90054C364 /* Main.storyboard */,
 				52264DE6228E52C90054C364 /* Assets.xcassets */,
 				52264DE8228E52C90054C364 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52264DF32291A8670054C364 /* TextFieldsDelegate.swift in Sources */,
 				52264DE2228E52C90054C364 /* ImageHandlerController.swift in Sources */,
 				52264DE0228E52C90054C364 /* AppDelegate.swift in Sources */,
 			);
