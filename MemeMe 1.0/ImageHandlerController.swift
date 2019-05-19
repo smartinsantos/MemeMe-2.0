@@ -13,7 +13,9 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var pickImage: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
-
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
+    
     enum buttonTypes: Int { case photoLibrary = 1, camera }
     
     // MARK: ImageHandlerController Lifecycle
@@ -37,6 +39,8 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
             imageView.image = image
         }
         
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
         dismiss(animated: true, completion: nil)
     }
     
