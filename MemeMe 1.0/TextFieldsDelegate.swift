@@ -19,6 +19,7 @@ class TextFieldsDelegate: NSObject, UITextFieldDelegate {
         newText = newText.replacingCharacters(in: range, with: string.uppercased()) as NSString
 
         textField.text = newText as String
+        
         return false
     }
     
@@ -28,6 +29,8 @@ class TextFieldsDelegate: NSObject, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+//        textField.text = textField.text?.isEmpty ?? false ? "FORGOT SOMETHING? :)" : textField.text
         return true;
     }
 }

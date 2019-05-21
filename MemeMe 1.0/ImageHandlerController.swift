@@ -18,6 +18,14 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     
     // MARK: ImageHandlerController Properties
     enum buttonTypes: Int { case photoLibrary = 1, camera }
+    
+    let textFieldsAttributes: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.strokeWidth: -4.5,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.foregroundColor: UIColor.white
+    ]
+    
     let textFieldsDelegate = TextFieldsDelegate();
     
     // MARK: ImageHandlerController Lifecycle
@@ -36,8 +44,9 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         // delegates
         self.topText.delegate = self.textFieldsDelegate
         self.bottomText.delegate = self.textFieldsDelegate
-        
-        // MARK: @TODO ui
+        // ui
+        self.topText.defaultTextAttributes = textFieldsAttributes
+        self.bottomText.defaultTextAttributes = textFieldsAttributes
     }
     
     // MARK: ImageHandlerController UIImagePickerControllerDelegate Methods
