@@ -19,26 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vbi-4C-MjX" userLabel="Picked Image">
-                                <rect key="frame" x="16" y="60" width="382" height="766"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-XE-LgY">
-                                <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="826" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rWP-mk-Cjw"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="udm-OV-gZt"/>
                                     <barButtonItem tag="1" title="Library" id="nGx-rr-KnY" userLabel="Photo Library">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="baO-9v-VMd"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1yf-5q-JcI"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rWP-mk-Cjw"/>
                                     <barButtonItem tag="2" title="Camera" id="RIg-aF-Ys7" userLabel="Camera">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="pE7-2D-e97"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EeW-Z8-0ho"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1yf-5q-JcI"/>
                                 </items>
                                 <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
@@ -56,17 +56,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-B5-Xpp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Mememe" id="pTs-DD-Tst"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dng-oh-VoT" firstAttribute="bottom" secondItem="Vbi-4C-MjX" secondAttribute="bottom" constant="-16" id="5Vr-Wq-wJF"/>
-                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="7Zj-m8-zY8"/>
+                            <constraint firstItem="Dng-oh-VoT" firstAttribute="bottom" secondItem="Vbi-4C-MjX" secondAttribute="bottom" constant="-65" id="5Vr-Wq-wJF"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Zj-m8-zY8"/>
                             <constraint firstItem="lnu-uh-RHG" firstAttribute="centerX" secondItem="Vbi-4C-MjX" secondAttribute="centerX" id="Gfz-5D-Erp"/>
-                            <constraint firstItem="lnu-uh-RHG" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="top" constant="16" id="mfI-4i-KXp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vbi-4C-MjX" secondAttribute="trailing" constant="16" id="pgW-Vx-LaI"/>
-                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-36" id="stK-iz-7IO"/>
+                            <constraint firstItem="lnu-uh-RHG" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="top" constant="60" id="mfI-4i-KXp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vbi-4C-MjX" secondAttribute="trailing" id="pgW-Vx-LaI"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="stK-iz-7IO"/>
                             <constraint firstItem="Dng-oh-VoT" firstAttribute="centerX" secondItem="Vbi-4C-MjX" secondAttribute="centerX" id="xCq-sv-Gpd"/>
-                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xic-zq-NF8"/>
+                            <constraint firstItem="Vbi-4C-MjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xic-zq-NF8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -74,7 +82,9 @@
                         <outlet property="bottomText" destination="Dng-oh-VoT" id="saE-z7-9ST"/>
                         <outlet property="cameraButton" destination="RIg-aF-Ys7" id="Ojk-Nk-One"/>
                         <outlet property="imageView" destination="Vbi-4C-MjX" id="UdF-TU-wNe"/>
+                        <outlet property="navigationBarItem" destination="pTs-DD-Tst" id="z6t-CH-hNy"/>
                         <outlet property="pickImage" destination="nGx-rr-KnY" id="l4o-Yf-sGk"/>
+                        <outlet property="toolbar" destination="zOw-XE-LgY" id="Pgy-tA-u4e"/>
                         <outlet property="topText" destination="lnu-uh-RHG" id="WyD-1t-8Sd"/>
                     </connections>
                 </viewController>
