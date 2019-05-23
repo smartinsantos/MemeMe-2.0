@@ -72,6 +72,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         
         shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(self.shareMeme))
         shareButton.isEnabled = false;
+
         cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(eraseImage))
         navigationBarItem.setLeftBarButtonItems([shareButton], animated: true)
         navigationBarItem.setRightBarButtonItems([cancelButton], animated: true)
@@ -124,8 +125,12 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = image
         }
-        self.shareButton.isEnabled = true
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true, completion: {
+            if (self.imageView.image != nil) {
+                self.shareButton.isEnabled = true
+            }
+        })
     }
     
     // MARK: ImageHandlerController Actions
@@ -148,19 +153,33 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @objc func shareMeme() {
+        if (imageView.image == nil) {
+            // safety net for share button state
+            let alert = UIAlertController(title: "Oops!", message: "Memes are supossed to have an image :(", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+
+        // hide elements in the screen to take snapshot
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         toolbar.isHidden = true
+        
+        // generate snapshot of the screen and save memed image
         // I don't quite understand why we need this strucuture unless this is later going to be saved in local storage
-//        let meme = Meme(
-//            topText: topText.text!,
-//            bottomText: bottomText.text!,
-//            originalImage: imageView.image!,
-//            memedImage: generateMemedImage()
-//        )
-        let memedImage = generateMemedImage()
+        let meme = Meme(
+            topText: topText.text!,
+            bottomText: bottomText.text!,
+            originalImage: imageView.image!,
+            memedImage: generateMemedImage()
+        )
+
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         toolbar.isHidden = false
         
-        let vc = UIActivityViewController(activityItems: [memedImage], applicationActivities: [])
-        present(vc, animated: true)
+        
+        let avController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: [])
+        present(avController, animated: true)
     }
     
     @objc func eraseImage() {
