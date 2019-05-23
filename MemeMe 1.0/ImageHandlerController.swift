@@ -174,6 +174,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
             memedImage: generateMemedImage()
         )
 
+        // show elements in the screen
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         toolbar.isHidden = false
         

@@ -22,9 +22,8 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-XE-LgY">
-                                <rect key="frame" x="0.0" y="826" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-XE-LgY">
+                                <rect key="frame" x="0.0" y="829" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="udm-OV-gZt"/>
                                     <barButtonItem tag="1" title="Library" id="nGx-rr-KnY" userLabel="Photo Library">
@@ -56,20 +55,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-B5-Xpp">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-B5-Xpp">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="Mememe" id="pTs-DD-Tst"/>
+                                    <navigationItem id="pTs-DD-Tst"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zOw-XE-LgY" firstAttribute="top" secondItem="Dng-oh-VoT" secondAttribute="bottom" constant="32" id="55g-yK-FBK"/>
                             <constraint firstItem="Dng-oh-VoT" firstAttribute="bottom" secondItem="Vbi-4C-MjX" secondAttribute="bottom" constant="-65" id="5Vr-Wq-wJF"/>
                             <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Zj-m8-zY8"/>
+                            <constraint firstItem="HcK-B5-Xpp" firstAttribute="leading" secondItem="zOw-XE-LgY" secondAttribute="leading" id="Fhf-ca-1cR"/>
                             <constraint firstItem="lnu-uh-RHG" firstAttribute="centerX" secondItem="Vbi-4C-MjX" secondAttribute="centerX" id="Gfz-5D-Erp"/>
+                            <constraint firstItem="HcK-B5-Xpp" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="top" id="KVG-bI-4Bs"/>
+                            <constraint firstItem="HcK-B5-Xpp" firstAttribute="trailing" secondItem="zOw-XE-LgY" secondAttribute="trailing" id="OM0-x0-FYo"/>
+                            <constraint firstItem="HcK-B5-Xpp" firstAttribute="leading" secondItem="Vbi-4C-MjX" secondAttribute="leading" id="Pdv-17-oMj"/>
+                            <constraint firstItem="HcK-B5-Xpp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bgy-HP-cqs"/>
                             <constraint firstItem="lnu-uh-RHG" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="top" constant="60" id="mfI-4i-KXp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vbi-4C-MjX" secondAttribute="trailing" id="pgW-Vx-LaI"/>
                             <constraint firstItem="Vbi-4C-MjX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="stK-iz-7IO"/>
