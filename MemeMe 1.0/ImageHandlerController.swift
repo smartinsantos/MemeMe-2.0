@@ -11,6 +11,7 @@ import UIKit
 class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: ImageHandlerController Outlets
+    
     @IBOutlet weak var navigationBarItem: UINavigationItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
@@ -20,8 +21,10 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var imageView: UIImageView!
     var shareButton: UIBarButtonItem!
     var cancelButton: UIBarButtonItem!
+    var meme: Meme!
 
     // MARK: ImageHandlerController Properties
+    
     enum buttonTypes: Int { case photoLibrary = 1, camera }
     struct Meme {
         var topText: String
@@ -45,6 +48,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     let textFieldsDelegate = TextFieldsDelegate();
         
     // MARK: ImageHandlerController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -60,6 +64,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // MARK: ImageHandlerController Methods
+    
     func setupUI() -> Void {
         // delegates
         self.topText.delegate = self.textFieldsDelegate
@@ -73,7 +78,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(self.shareMeme))
         shareButton.isEnabled = false;
 
-        cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(eraseImage))
+        cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(resetView))
         navigationBarItem.setLeftBarButtonItems([shareButton], animated: true)
         navigationBarItem.setRightBarButtonItems([cancelButton], animated: true)
         
@@ -98,6 +103,15 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         return keyboardSize.cgRectValue.height
     }
     
+    func saveMeme() {
+        self.meme = Meme(
+            topText: topText.text!,
+            bottomText: bottomText.text!,
+            originalImage: imageView.image!,
+            memedImage: generateMemedImage()
+        )
+    }
+    
     @objc func keyboardWillShow(_ notification:Notification) {
         view.frame.origin.y -= getKeyboardHeight(notification)
     }
@@ -107,16 +121,25 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func generateMemedImage() -> UIImage {
+        // hide elements in the screen to take snapshot
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        toolbar.isHidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
+        // show elements in the screen
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        toolbar.isHidden = false
+        
         return memedImage
     }
     
     // MARK: ImageHandlerController UIImagePickerControllerDelegate Methods
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
@@ -134,6 +157,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // MARK: ImageHandlerController Actions
+    
     @IBAction func pickAnImage(_ sender: UIBarButtonItem) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -160,30 +184,21 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
             present(alert, animated: true)
             return
         }
-
-        // hide elements in the screen to take snapshot
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        toolbar.isHidden = true
         
         // generate snapshot of the screen and save memed image
-        // I don't quite understand why we need this strucuture unless this is later going to be saved in local storage
-        let meme = Meme(
-            topText: topText.text!,
-            bottomText: bottomText.text!,
-            originalImage: imageView.image!,
-            memedImage: generateMemedImage()
-        )
+        let generatedMeme = generateMemedImage()
+        
+        let avController = UIActivityViewController(activityItems: [generatedMeme], applicationActivities: [])
+        avController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
+            if completed {
+                self.saveMeme()
+            }
+        }
 
-        // show elements in the screen
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        toolbar.isHidden = false
-        
-        
-        let avController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: [])
         present(avController, animated: true)
     }
     
-    @objc func eraseImage() {
+    @objc func resetView() {
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
         imageView.image = nil
