@@ -86,7 +86,9 @@
                         <outlet property="bottomText" destination="Dng-oh-VoT" id="saE-z7-9ST"/>
                         <outlet property="cameraButton" destination="RIg-aF-Ys7" id="Ojk-Nk-One"/>
                         <outlet property="imageView" destination="Vbi-4C-MjX" id="UdF-TU-wNe"/>
+                        <outlet property="navigationBar" destination="HcK-B5-Xpp" id="FTd-n8-aWg"/>
                         <outlet property="navigationBarItem" destination="pTs-DD-Tst" id="z6t-CH-hNy"/>
+                        <outlet property="navigationItem" destination="pTs-DD-Tst" id="10C-6L-8e8"/>
                         <outlet property="pickImage" destination="nGx-rr-KnY" id="l4o-Yf-sGk"/>
                         <outlet property="toolbar" destination="zOw-XE-LgY" id="Pgy-tA-u4e"/>
                         <outlet property="topText" destination="lnu-uh-RHG" id="WyD-1t-8Sd"/>

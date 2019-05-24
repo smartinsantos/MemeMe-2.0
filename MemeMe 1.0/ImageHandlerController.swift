@@ -11,7 +11,7 @@ import UIKit
 class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: ImageHandlerController Outlets
-    
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
@@ -53,7 +53,6 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: ImageHandlerController Methods
     
     func configureView() -> Void {
-        configureViewForMeme(hide: true)
         configureTextField(topText, with: "TOP")
         configureTextField(bottomText, with: "BOTTOM")
         
@@ -102,8 +101,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func configureViewForMeme(hide: Bool) {
-        // hide/show elements on screen for snapshot
-        self.navigationController?.setNavigationBarHidden(hide, animated: false)
+        navigationBar.isHidden = hide
         toolbar.isHidden = hide
     }
     
