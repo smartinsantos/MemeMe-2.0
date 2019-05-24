@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ImageHandlerController.swift
 //  MemeMe 1.0
 //
 //  Created by Sergio Martin on 5/16/19.
@@ -26,19 +26,6 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: ImageHandlerController Properties
     
     enum buttonTypes: Int { case photoLibrary = 1, camera }
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-        
-        init(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
-            self.topText = topText;
-            self.bottomText = bottomText;
-            self.originalImage = originalImage;
-            self.memedImage = memedImage;
-        }
-    }
     let textFieldsAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.strokeWidth: -4.5,
@@ -55,7 +42,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupUI()
+        configureView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,15 +52,10 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     
     // MARK: ImageHandlerController Methods
     
-    func setupUI() -> Void {
-        // delegates
-        self.topText.delegate = self.textFieldsDelegate
-        self.bottomText.delegate = self.textFieldsDelegate
-        // ui
-        self.topText.defaultTextAttributes = textFieldsAttributes
-        self.bottomText.defaultTextAttributes = textFieldsAttributes
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
+    func configureView() -> Void {
+        configureViewForMeme(hide: true)
+        configureTextField(topText, with: "TOP")
+        configureTextField(bottomText, with: "BOTTOM")
         
         shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(self.shareMeme))
         shareButton.isEnabled = false;
@@ -84,6 +66,12 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
+    }
+    
+    func configureTextField(_ textField: UITextField, with defaultText: String) {
+        textField.delegate = textFieldsDelegate
+        textField.defaultTextAttributes = textFieldsAttributes
+        textField.text = defaultText
     }
     
     func subscribeToKeyboardNotifications() {
@@ -103,6 +91,36 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         return keyboardSize.cgRectValue.height
     }
     
+    @objc func keyboardWillShow(_ notification:Notification) {
+        if bottomText.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification) {
+        view.frame.origin.y = 0
+    }
+    
+    func configureViewForMeme(hide: Bool) {
+        // hide/show elements on screen for snapshot
+        self.navigationController?.setNavigationBarHidden(hide, animated: false)
+        toolbar.isHidden = hide
+    }
+    
+    func generateMemedImage() -> UIImage {
+        configureViewForMeme(hide: true)
+    
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        configureViewForMeme(hide: false)
+        
+        return memedImage
+    }
+    
     func saveMeme() {
         self.meme = Meme(
             topText: topText.text!,
@@ -110,32 +128,6 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
             originalImage: imageView.image!,
             memedImage: generateMemedImage()
         )
-    }
-    
-    @objc func keyboardWillShow(_ notification:Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
-    }
-    
-    @objc func keyboardWillHide(_ notification:Notification) {
-        view.frame.origin.y += getKeyboardHeight(notification)
-    }
-    
-    func generateMemedImage() -> UIImage {
-        // hide elements in the screen to take snapshot
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        toolbar.isHidden = true
-        
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        // show elements in the screen
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        toolbar.isHidden = false
-        
-        return memedImage
     }
     
     // MARK: ImageHandlerController UIImagePickerControllerDelegate Methods

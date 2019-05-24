@@ -24,7 +24,9 @@ class TextFieldsDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+        if ["TOP", "BOTTOM"].contains(textField.text!) {
+            textField.text = ""
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
