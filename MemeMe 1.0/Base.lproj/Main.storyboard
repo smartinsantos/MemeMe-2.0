@@ -41,19 +41,19 @@
                                 </items>
                                 <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lnu-uh-RHG" userLabel="Top Text Field">
-                                <rect key="frame" x="40" y="96" width="339" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lnu-uh-RHG" userLabel="Top Text Field">
+                                <rect key="frame" x="16" y="104" width="382" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dng-oh-VoT" userLabel="Bottom Text Field">
-                                <rect key="frame" x="40" y="764" width="339" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dng-oh-VoT" userLabel="Bottom Text Field">
+                                <rect key="frame" x="16" y="780" width="382" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-B5-Xpp">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -68,15 +68,19 @@
                             <constraint firstItem="zOw-XE-LgY" firstAttribute="top" secondItem="Dng-oh-VoT" secondAttribute="bottom" constant="32" id="55g-yK-FBK"/>
                             <constraint firstItem="Dng-oh-VoT" firstAttribute="bottom" secondItem="Vbi-4C-MjX" secondAttribute="bottom" constant="-65" id="5Vr-Wq-wJF"/>
                             <constraint firstItem="Vbi-4C-MjX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Zj-m8-zY8"/>
+                            <constraint firstItem="lnu-uh-RHG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Eul-Xm-Swo"/>
                             <constraint firstItem="HcK-B5-Xpp" firstAttribute="leading" secondItem="zOw-XE-LgY" secondAttribute="leading" id="Fhf-ca-1cR"/>
                             <constraint firstItem="lnu-uh-RHG" firstAttribute="centerX" secondItem="Vbi-4C-MjX" secondAttribute="centerX" id="Gfz-5D-Erp"/>
                             <constraint firstItem="HcK-B5-Xpp" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="top" id="KVG-bI-4Bs"/>
                             <constraint firstItem="HcK-B5-Xpp" firstAttribute="trailing" secondItem="zOw-XE-LgY" secondAttribute="trailing" id="OM0-x0-FYo"/>
                             <constraint firstItem="HcK-B5-Xpp" firstAttribute="leading" secondItem="Vbi-4C-MjX" secondAttribute="leading" id="Pdv-17-oMj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dng-oh-VoT" secondAttribute="trailing" constant="16" id="UPE-t1-J7e"/>
                             <constraint firstItem="HcK-B5-Xpp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bgy-HP-cqs"/>
+                            <constraint firstItem="Dng-oh-VoT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gO7-bN-bNo"/>
                             <constraint firstItem="lnu-uh-RHG" firstAttribute="top" secondItem="Vbi-4C-MjX" secondAttribute="top" constant="60" id="mfI-4i-KXp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vbi-4C-MjX" secondAttribute="trailing" id="pgW-Vx-LaI"/>
                             <constraint firstItem="Vbi-4C-MjX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="stK-iz-7IO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lnu-uh-RHG" secondAttribute="trailing" constant="16" id="x0w-SB-xxH"/>
                             <constraint firstItem="Dng-oh-VoT" firstAttribute="centerX" secondItem="Vbi-4C-MjX" secondAttribute="centerX" id="xCq-sv-Gpd"/>
                             <constraint firstItem="Vbi-4C-MjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xic-zq-NF8"/>
                         </constraints>

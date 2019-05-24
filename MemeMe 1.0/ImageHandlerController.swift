@@ -26,22 +26,20 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: ImageHandlerController Properties
     
     enum buttonTypes: Int { case photoLibrary = 1, camera }
-    let textFieldsAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.strokeWidth: -4.5,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.foregroundColor: UIColor.white
+    
+    let textFieldsAttributes : [NSAttributedString.Key : Any] = [
+        .strokeColor: UIColor.black,
+        .foregroundColor: UIColor.white,
+        .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        .strokeWidth: -4.0
     ]
+
     let textFieldsDelegate = TextFieldsDelegate();
         
     // MARK: ImageHandlerController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         configureView()
     }
     
@@ -71,6 +69,8 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         textField.delegate = textFieldsDelegate
         textField.defaultTextAttributes = textFieldsAttributes
         textField.text = defaultText
+        textField.textAlignment = .center
+        textField.autocapitalizationType = .allCharacters
     }
     
     func subscribeToKeyboardNotifications() {
