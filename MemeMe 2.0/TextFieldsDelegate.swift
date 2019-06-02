@@ -1,6 +1,6 @@
 //
 //  TextFieldsDelegate.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Sergio Martin on 5/19/19.
 //  Copyright © 2019 Sergio Martin. All rights reserved.
