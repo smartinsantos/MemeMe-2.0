@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="54"/>
+            <point key="canvasLocation" x="1497" y="371"/>
         </scene>
         <!--Table Navigation-->
         <scene sceneID="L7Z-N2-xIg">
@@ -219,14 +219,44 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tU4-AB-Gcl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4sN-g3-aCr"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="4sN-g3-aCr"/>
                     <connections>
                         <outlet property="navigationBarItem" destination="4sN-g3-aCr" id="CcP-0g-Zps"/>
+                        <outlet property="tableView" destination="dRm-FA-EMh" id="ahF-wP-BHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxp-3K-No8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="600" y="-281"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="vKo-tp-2ix">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="dhC-8Q-hGU" userLabel="Detail View Controller" customClass="DetailViewController" customModule="MemeMe_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bz1-rd-7wM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WmU-lw-HQv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WmU-lw-HQv" firstAttribute="top" secondItem="2GX-CL-dru" secondAttribute="top" id="B0a-ZO-81K"/>
+                            <constraint firstItem="WmU-lw-HQv" firstAttribute="width" secondItem="Bz1-rd-7wM" secondAttribute="width" id="NMh-ZX-exc"/>
+                            <constraint firstItem="WmU-lw-HQv" firstAttribute="leading" secondItem="Bz1-rd-7wM" secondAttribute="leading" id="fe6-QW-Pdg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="WmU-lw-HQv" secondAttribute="bottom" id="jeW-5A-wKh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2GX-CL-dru"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="WmU-lw-HQv" id="5hI-Xe-SsL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLk-lg-Enc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="-281"/>
         </scene>
         <!--Collection Navigation-->
         <scene sceneID="Tfa-3b-olZ">

@@ -14,6 +14,7 @@
 		52264DF32291A8670054C364 /* TextFieldsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52264DF22291A8670054C364 /* TextFieldsDelegate.swift */; };
 		524238A522976215008F210B /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524238A422976215008F210B /* Meme.swift */; };
 		5243A6C622A410D400F0B11C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243A6C522A410D400F0B11C /* TableViewController.swift */; };
+		5243A6C822A424BF00F0B11C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243A6C722A424BF00F0B11C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		52264DF22291A8670054C364 /* TextFieldsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsDelegate.swift; sourceTree = "<group>"; };
 		524238A422976215008F210B /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		5243A6C522A410D400F0B11C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		5243A6C722A424BF00F0B11C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				52264DDF228E52C90054C364 /* AppDelegate.swift */,
 				5243A6C522A410D400F0B11C /* TableViewController.swift */,
 				52264DE1228E52C90054C364 /* ImageHandlerController.swift */,
+				5243A6C722A424BF00F0B11C /* DetailViewController.swift */,
 				52264DF22291A8670054C364 /* TextFieldsDelegate.swift */,
 				52264DE3228E52C90054C364 /* Main.storyboard */,
 				52264DE6228E52C90054C364 /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 				524238A522976215008F210B /* Meme.swift in Sources */,
 				52264DF32291A8670054C364 /* TextFieldsDelegate.swift in Sources */,
 				52264DE2228E52C90054C364 /* ImageHandlerController.swift in Sources */,
+				5243A6C822A424BF00F0B11C /* DetailViewController.swift in Sources */,
 				5243A6C622A410D400F0B11C /* TableViewController.swift in Sources */,
 				52264DE0228E52C90054C364 /* AppDelegate.swift in Sources */,
 			);

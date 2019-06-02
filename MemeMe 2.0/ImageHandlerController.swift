@@ -57,7 +57,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(self.shareMeme))
         shareButton.isEnabled = false;
 
-        cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(resetView))
+        cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(self.dismissView))
         navigationBarItem.setLeftBarButtonItems([shareButton], animated: true)
         navigationBarItem.setRightBarButtonItems([cancelButton], animated: true)
         
@@ -194,11 +194,8 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         present(avController, animated: true)
     }
     
-    @objc func resetView() {
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
-        imageView.image = nil
-        shareButton.isEnabled = false
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
