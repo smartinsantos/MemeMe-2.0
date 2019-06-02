@@ -43,7 +43,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tck-ot-fiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="371"/>
+            <point key="canvasLocation" x="617" y="371"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zRC-Tf-xvy">
@@ -159,7 +159,7 @@
         <scene sceneID="L7Z-N2-xIg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2qY-Jc-wLL" userLabel="Table Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="fNI-x5-Jc2"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" image="table" id="fNI-x5-Jc2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x2B-DU-CXc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -178,7 +178,7 @@
         <scene sceneID="Tfa-3b-olZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r53-hU-iw6" userLabel="Collection Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Ncu-JJ-OtH"/>
+                    <tabBarItem key="tabBarItem" title="Item 2" image="collection" id="Ncu-JJ-OtH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QV3-WZ-hLF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -220,7 +220,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uf1-vf-nEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="-281"/>
+            <point key="canvasLocation" x="599" y="-281"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="30" height="30.5"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
 </document>
