@@ -12,6 +12,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     var image: UIImage!
+    
+    // MARK: Detail View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = self.image

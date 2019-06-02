@@ -10,12 +10,12 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
     var addButton: UIBarButtonItem!
     var memes: [Meme]!
 
+    // MARK: Meme Table View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -26,8 +26,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // load data from delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.memes = appDelegate.memes
-
-        // reload data into table view
+        // reload data in table
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.reloadData()
@@ -38,13 +37,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         navigationBarItem.setRightBarButtonItems([addButton], animated: true)
     }
     
+    // MARK: Meme Table View Custom Methods
     @objc func launcheMemeEditor() {
         let ihController = self.storyboard!.instantiateViewController(withIdentifier: "ImageHandlerController") as! ImageHandlerController
 
         self.present(ihController, animated: true, completion: nil)
     }
     
-
+    // MARK: Meme Table View UITableViewDataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }

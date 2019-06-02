@@ -16,6 +16,7 @@ class CollectionViewController: UICollectionViewController {
     var addButton: UIBarButtonItem!
     var memes: [Meme]!
     
+    // MARK: Meme Collection View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,10 +31,11 @@ class CollectionViewController: UICollectionViewController {
         // load data from delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.memes = appDelegate.memes
-        
+        // reload data in collection
         collectionView?.reloadData()
     }
     
+    // MARK: Meme Collection View Custom Methods
     func configureView() {
         addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(self.launcheMemeEditor))
         navigationBarItem.setRightBarButtonItems([addButton], animated: true)
@@ -45,8 +47,7 @@ class CollectionViewController: UICollectionViewController {
         self.present(ihController, animated: true, completion: nil)
     }
     
-    // MARK: UICollectionViewDataSource
-
+    // MARK: Meme Collection View UICollectionViewDataSource Methods
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return self.memes.count
@@ -67,7 +68,6 @@ class CollectionViewController: UICollectionViewController {
         let meme = self.memes[(indexPath as NSIndexPath).row]
         detailController.image = meme.memedImage
         self.navigationController!.pushViewController(detailController, animated: true)
-        
     }
     
 }

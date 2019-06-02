@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: Cell for Meme Collection View
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var memeImageView: UIImageView!
 }

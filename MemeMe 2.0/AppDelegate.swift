@@ -10,7 +10,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    // MARK: Meme shared model
+    
+    // MARK: Meme shared data model
     var memes = [Meme]()
     
     var window: UIWindow?

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// MARK: Meme struct definition
 struct Meme {
     var topText: String
     var bottomText: String
