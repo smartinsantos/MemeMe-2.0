@@ -187,6 +187,7 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
         avController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
             if completed {
                 self.saveMeme()
+                self.dismiss(animated: true, completion: nil)
             }
         }
 
