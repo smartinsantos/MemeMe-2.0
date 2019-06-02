@@ -22,6 +22,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
         // load data from delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.memes = appDelegate.memes
