@@ -35,6 +35,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func configureView() {
         addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(self.launcheMemeEditor))
         navigationBarItem.setRightBarButtonItems([addButton], animated: true)
+
+        tableView?.rowHeight = 100.0
+        tableView?.separatorStyle = .none
     }
     
     // MARK: Meme Table View Custom Methods
@@ -61,8 +64,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
         let meme = self.memes[(indexPath as NSIndexPath).row]
         detailController.image = meme.memedImage
+        
         self.navigationController!.pushViewController(detailController, animated: true)
     }
 }
