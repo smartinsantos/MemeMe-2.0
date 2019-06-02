@@ -10,10 +10,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item 2-->
+        <scene sceneID="J6J-hl-sR0">
+            <objects>
+                <viewController id="pJv-ck-yCE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zXf-8i-TQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WRg-Pa-Rle"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Ncu-JJ-OtH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVg-lF-2nU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-632" y="351"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="H2J-iA-5QL">
+            <objects>
+                <viewController id="X2n-cE-GOp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rv7-dg-zqU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Qxb-do-P9b"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="fNI-x5-Jc2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAN-Na-avi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-632" y="-298"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zRC-Tf-xvy">
+            <objects>
+                <tabBarController id="Jfk-gz-1qA" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x6X-Xg-ZWg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="X2n-cE-GOp" kind="relationship" relationship="viewControllers" id="JPg-a1-TGF"/>
+                        <segue destination="pJv-ck-yCE" kind="relationship" relationship="viewControllers" id="en9-8W-lqp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D8V-R1-aqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1554" y="35"/>
+        </scene>
         <!--Image Handler Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Image Handler Controller" customClass="ImageHandlerController" customModule="MemeMe_1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Image Handler Controller" customClass="ImageHandlerController" customModule="MemeMe_2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Image Handler View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="132.58928571428572"/>
+            <point key="canvasLocation" x="539" y="-21"/>
         </scene>
     </scenes>
 </document>

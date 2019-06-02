@@ -120,12 +120,17 @@ class ImageHandlerController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func saveMeme() {
-        self.meme = Meme(
+        let meme = Meme(
             topText: topText.text!,
             bottomText: bottomText.text!,
             originalImage: imageView.image!,
             memedImage: generateMemedImage()
         )
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // MARK: ImageHandlerController UIImagePickerControllerDelegate Methods

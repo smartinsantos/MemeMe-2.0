@@ -58,6 +58,7 @@
 		52264DDE228E52C90054C364 /* MemeMe 2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				524238A422976215008F210B /* Meme.swift */,
 				52264DDF228E52C90054C364 /* AppDelegate.swift */,
 				52264DE1228E52C90054C364 /* ImageHandlerController.swift */,
 				52264DF22291A8670054C364 /* TextFieldsDelegate.swift */,
@@ -65,7 +66,6 @@
 				52264DE6228E52C90054C364 /* Assets.xcassets */,
 				52264DE8228E52C90054C364 /* LaunchScreen.storyboard */,
 				52264DEB228E52C90054C364 /* Info.plist */,
-				524238A422976215008F210B /* Meme.swift */,
 			);
 			path = "MemeMe 2.0";
 			sourceTree = "<group>";
